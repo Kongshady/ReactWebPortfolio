@@ -5,16 +5,17 @@ import { FaGithub, FaEye } from "react-icons/fa";
 
 export default function ProjectCard({ title, description, link, github, image }) {
     return (
-        <div className="bg-[#232733] rounded-lg shadow p-6">
-            <div className="mb-4">
+        <div className="bg-[#232733] rounded-lg shadow">
+            <div className="">
                 <img
                     src={image || "https://via.placeholder.com/400x200?text=Project+Image"}
                     alt={title}
                     className="w-full h-40 object-cover rounded-md"
                 />
             </div>
-            <h4 className="font-bold mb-2">{title}</h4>
-            <p className="text-gray-400 mb-4">{description}</p>
+            <div className="p-5">
+                <h4 className="font-bold mb-2">{title}</h4>
+                <p className="text-gray-400 mb-4">{description}</p>
             <div className="flex items-center gap-4">
                 {link && (
                     <a href={link} className="flex items-center text-orange-400 hover:underline" target="_blank" rel="noopener noreferrer">
@@ -28,6 +29,7 @@ export default function ProjectCard({ title, description, link, github, image })
                         GitHub
                     </a>
                 )}
+            </div>
             </div>
         </div>
     );

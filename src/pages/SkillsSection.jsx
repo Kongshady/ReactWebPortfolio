@@ -26,7 +26,7 @@ export default function SkillsSection() {
         };
     }, []);
     return (
-        <section className="px-4 py-12 md:py-16 bg-[#181c23]">
+        <section id='skills' className="px-4 py-12 md:py-16 bg-[#181c23]">
             <div className="max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold mb-2 text-white">Skill Area</h3>
                 <p className="text-gray-400 mb-8">A concise showcase of my technical and creative abilities, highlighting key tools and proficiency levels used to deliver polished, user‑focused projects.</p>

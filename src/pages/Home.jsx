@@ -11,6 +11,7 @@ export default function Home() {
     const navLinks = [
         { href: "#home", label: "Home" },
         { href: "#about", label: "About" },
+        { href: "#skills", label: "Skills" },
         { href: "#projects", label: "Projects" },
         { href: "#contact", label: "Contacts" },
     ];
@@ -26,6 +27,13 @@ export default function Home() {
                             key={link.label}
                             href={link.href}
                             className="relative px-2 py-1 font-medium text-lg transition-colors duration-300 hover:text-orange-400 focus:text-orange-400"
+                            onClick={e => {
+                                const target = document.querySelector(link.href);
+                                if (target) {
+                                    e.preventDefault();
+                                    target.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
                         >
                             {link.label}
                             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-orange-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -53,7 +61,16 @@ export default function Home() {
                         key={link.label}
                         href={link.href}
                         className="py-5 text-2xl font-semibold text-white hover:text-orange-400 transition-colors duration-300"
-                        onClick={() => setMenuOpen(false)}
+                        onClick={e => {
+                            setMenuOpen(false);
+                            const target = document.querySelector(link.href);
+                            if (target) {
+                                e.preventDefault();
+                                setTimeout(() => {
+                                    target.scrollIntoView({ behavior: 'smooth' });
+                                }, 200);
+                            }
+                        }}
                     >
                         {link.label}
                     </a>
