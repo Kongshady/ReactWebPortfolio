@@ -17,8 +17,8 @@ export default function ContactSection() {
 
     return (
         <section id="contact" className="px-8 py-12 md:py-20 bg-[#1f232b]">
-            <div className="max-w-4xl mx-auto text-center">
-                <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <div className="max-w-4xl mx-auto">
+                <h3 className="text-xl font-bold mb-4">Contact Me</h3>
                 <p className="text-gray-300 mb-8">Feel free to reach out for collaborations or project inquiries using the form below.</p>
                 {submitted ? (
                     <div className="text-green-400 font-semibold">Thank you for your message! I'll get back to you soon.</div>
@@ -69,7 +69,7 @@ export default function ContactSection() {
                     </form>
                 )}
                 <div className="mt-8 text-gray-400">
-                    Or email directly: <span className="font-mono">your.email@example.com</span>
+                    Or email me directly to: <span className="font-mono font-semibold">mikkojardenico@gmail.com</span>
                 </div>
             </div>
         </section>

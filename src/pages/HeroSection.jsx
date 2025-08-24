@@ -18,7 +18,7 @@ export default function HeroSection() {
                 <p className="text-gray-300 mb-8 max-w-md">I create modern web and mobile experiences with a focus on clean design, performance, and usability. Let's build something amazing together.</p>
                 <div className="flex gap-4 flex-wrap justify-center md:justify-start mb-8">
                     <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded shadow font-semibold transition">Got a project?</button>
-                    <button className="border border-orange-400 text-orange-400 px-6 py-2 rounded shadow font-semibold hover:bg-orange-400 hover:text-[#181c23] transition">My resume</button>
+                    <button className="border border-orange-400 text-orange-400 px-6 py-2 rounded shadow font-semibold hover:bg-orange-400 hover:text-[#181c23] transition">Download CV</button>
                 </div>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start text-gray-400 text-base mt-2">
                     <span className="bg-[#232733] px-3 py-1 rounded">HTML5</span>
@@ -32,12 +32,15 @@ export default function HeroSection() {
             </div>
 
             {/* Profile Image with ring and accent */}
-            <div className="flex-1 flex justify-center z-10">
+            {/* <div className="flex-1 flex justify-center z-10">
                 <div className="relative flex items-center justify-center">
                     <div className="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-orange-500 to-orange-900 opacity-30"></div>
                     <img src="/public/images/profile-placeholder.png" alt="Profile" className="relative w-56 h-56 rounded-full object-cover bg-gray-700 border-4 border-orange-400 shadow-lg" />
                 </div>
-            </div>
+            </div> */}
+
+            {/* Change the image to a background image soon if available */}
+
         </section>
     );
 }
