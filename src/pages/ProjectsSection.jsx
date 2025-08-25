@@ -11,35 +11,35 @@ export default function ProjectsSection() {
             description: "A mobile application for hemophilia patients to manage their condition.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "MarianTBI Curriculum Monitoring",
             description: "A web application for monitoring and managing curriculum content.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "Fitmed Web Application",
             description: "A web application for fitness and health management.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "LabClass",
             description: "A web application for managing laboratory classes and schedules.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "BayadRent Davao",
             description: "A web application for managing rental properties in Davao.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         }
     ];
 
@@ -49,21 +49,21 @@ export default function ProjectsSection() {
             description: "A modern e-commerce platform with React and Node.js backend.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "Task Management App",
             description: "A collaborative task management application with real-time updates.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         },
         {
             title: "AI Chat Assistant",
             description: "An AI-powered chat assistant using modern machine learning APIs.",
             link: "#",
             github: "#",
-            image: "/images/placeholder.jpg"
+            image: "./images/placeholder.jpg"
         }
     ];
 

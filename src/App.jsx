@@ -1,9 +1,12 @@
 // Imports
-import AppRouter from './routing/AppRouter';
+import Home from './pages/Home';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   return (
-    <AppRouter />
+    <ErrorBoundary>
+      <Home />
+    </ErrorBoundary>
   );
 }
 

@@ -8,9 +8,13 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: '/ReactWebPortfolio/',
+  base: process.env.NODE_ENV === 'production' ? '/ReactWebPortfolio/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-  }
+    sourcemap: false,
+  },
+  server: {
+    port: 3000,
+  },
 })
