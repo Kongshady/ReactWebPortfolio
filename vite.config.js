@@ -4,9 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ReactWebPortfolio/',
   plugins: [
     react(),
     tailwindcss()
   ],
+  base: '/ReactWebPortfolio/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  }
 })
