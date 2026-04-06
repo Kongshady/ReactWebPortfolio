@@ -1,174 +1,201 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJava,
+  FaLaravel,
+  FaDailymotion,
+} from "react-icons/fa";
+import {
+  SiJavascript,
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPhp,
+  SiPython,
+  SiFlutter,
+  SiWordpress,
+  SiAdobephotoshop,
+  SiReactivex,
+} from "react-icons/si";
 
 const skillCategories = [
-    {
-        title: 'Frontend',
-        skills: [
-            { name: 'HTML5', percent: 90, icon: '🌐' },
-            { name: 'CSS3', percent: 85, icon: '🎨' },
-            { name: 'JavaScript', percent: 80, icon: '⚡' },
-            { name: 'React', percent: 75, icon: '⚛️' },
-            { name: 'Tailwind CSS', percent: 70, icon: '💨' }
-        ]
-    },
-    {
-        title: 'Backend',
-        skills: [
-            { name: 'Node.js', percent: 70, icon: '🟢' },
-            { name: 'PHP', percent: 65, icon: '🐘' },
-            { name: 'Python', percent: 60, icon: '🐍' },
-            { name: 'Java', percent: 55, icon: '☕' }
-        ]
-    },
-    {
-        title: 'Mobile & Tools',
-        skills: [
-            { name: 'Flutter', percent: 80, icon: '📱' },
-            { name: 'WordPress', percent: 70, icon: '📝' },
-            { name: 'Photoshop', percent: 65, icon: '🖼️' }
-        ]
-    }
+  {
+    title: "Skills",
+    skills: [
+      { name: "Problem Solving", percent: 90, icon: FaHtml5 },
+      { name: "API Integration", percent: 85, icon: FaCss3Alt },
+      { name: "Database Design", percent: 85, icon: SiJavascript },
+      { name: "Clean Code", percent: 80, icon: SiReact },
+      { name: "Version Control", percent: 80, icon: SiTailwindcss },
+    ],
+  },
+  {
+    title: "Languages",
+    skills: [
+      { name: "HTML5", percent: 90, icon: FaHtml5 },
+      { name: "CSS3", percent: 85, icon: FaCss3Alt },
+      { name: "JavaScript", percent: 80, icon: SiJavascript },
+      { name: "PHP", percent: 65, icon: SiPhp },
+      { name: "Python", percent: 60, icon: SiPython },
+      { name: "Java", percent: 55, icon: FaJava },
+    ],
+  },
+  {
+    title: "Frameworks",
+    skills: [
+      { name: "React", percent: 75, icon: SiReact },
+      { name: "Node.js", percent: 70, icon: SiNodedotjs },
+      { name: "Tailwind CSS", percent: 70, icon: SiTailwindcss },
+      { name: "Laravel", percent: 55, icon: FaLaravel },
+      { name: "Flutter", percent: 80, icon: SiFlutter },
+      { name: "React Native", percent: 65, icon: SiReactivex },
+    ],
+  },
+  {
+    title: "Tools",
+    skills: [
+      { name: "WordPress", percent: 70, icon: SiWordpress },
+      { name: "Git & GitHub", percent: 80, icon: FaCss3Alt },
+      { name: "VS Code", percent: 90, icon: FaHtml5 },
+      { name: "Postman", percent: 75, icon: SiNodedotjs },
+      { name: "Chrome DevTools", percent: 85, icon: SiJavascript },
+    ],
+  },
+  {
+    title: "Design",
+    skills: [
+      { name: "Photoshop", percent: 65, icon: SiAdobephotoshop },
+      { name: "Figma", percent: 70, icon: FaHtml5 },
+      { name: "UI/UX Design", percent: 70, icon: FaCss3Alt },
+      { name: "Prototyping", percent: 65, icon: SiReact },
+      { name: "Wireframing", percent: 75, icon: FaDailymotion },
+    ],
+  },
 ];
 
 export default function SkillsSection() {
-    const [isVisible, setIsVisible] = useState(false);
-    const [visibleCategories, setVisibleCategories] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleCategories, setVisibleCategories] = useState([]);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        const skillsElement = document.getElementById('skills');
-        if (skillsElement) {
-            observer.observe(skillsElement);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
-
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        if (isVisible) {
-            skillCategories.forEach((_, index) => {
-                setTimeout(() => {
-                    setVisibleCategories(prev => [...prev, index]);
-                }, index * 200);
-            });
-        }
-    }, [isVisible]);
-
-    return (
-        <section id='skills' className="px-4 py-16 md:py-20 bg-[#181c23] overflow-hidden">
-            <div className="max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <h3 className={`text-3xl md:text-4xl font-bold mb-4 text-white transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-                        Technical Skills
-                    </h3>
-                    <p className={`text-gray-400 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-200 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                        My expertise across different technologies and frameworks, constantly evolving with industry trends.
-                    </p>
-                </div>
-
-                {/* Skills Categories */}
-                <div className="space-y-12 md:space-y-16">
-                    {skillCategories.map((category, categoryIndex) => (
-                        <div 
-                            key={category.title}
-                            className={`transition-all duration-1000 transform ${
-                                visibleCategories.includes(categoryIndex) 
-                                    ? 'opacity-100 translate-x-0' 
-                                    : 'opacity-0 translate-x-12'
-                            }`}
-                        >
-                            {/* Category Title */}
-                            <h4 className="text-xl md:text-2xl font-semibold text-orange-400 mb-6 text-center md:text-left">
-                                {category.title}
-                            </h4>
-
-                            {/* Skills Grid */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {category.skills.map((skill, skillIndex) => (
-                                    <div 
-                                        key={skill.name}
-                                        className={`group transition-all duration-700 delay-${skillIndex * 100} transform hover:scale-105 ${
-                                            visibleCategories.includes(categoryIndex)
-                                                ? 'opacity-100 translate-y-0'
-                                                : 'opacity-0 translate-y-8'
-                                        }`}
-                                    >
-                                        {/* Skill Item */}
-                                        <div className="relative">
-                                            {/* Skill Header */}
-                                            <div className="flex items-center justify-between mb-3">
-                                                <div className="flex items-center space-x-3">
-                                                    <span className="text-2xl transform transition-transform group-hover:scale-125">
-                                                        {skill.icon}
-                                                    </span>
-                                                    <span className="text-white font-medium text-lg">
-                                                        {skill.name}
-                                                    </span>
-                                                </div>
-                                                <span className="text-orange-400 font-bold text-lg">
-                                                    {skill.percent}%
-                                                </span>
-                                            </div>
-
-                                            {/* Progress Bar */}
-                                            <div className="relative">
-                                                <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                                                    <div
-                                                        className="h-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-full transition-all duration-1500 ease-out transform origin-left"
-                                                        style={{ 
-                                                            width: visibleCategories.includes(categoryIndex) 
-                                                                ? `${skill.percent}%` 
-                                                                : '0%',
-                                                            transitionDelay: `${skillIndex * 150}ms`
-                                                        }}
-                                                    />
-                                                </div>
-                                                {/* Glow effect */}
-                                                <div 
-                                                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full opacity-30 blur-sm transition-all duration-1500 ease-out"
-                                                    style={{ 
-                                                        width: visibleCategories.includes(categoryIndex) 
-                                                            ? `${skill.percent}%` 
-                                                            : '0%',
-                                                        transitionDelay: `${skillIndex * 150}ms`
-                                                    }}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Floating Skills Tags */}
-                <div className={`mt-16 transition-all duration-1000 delay-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {['Responsive Design', 'API Integration', 'Database Design', 'Version Control', 'Agile Development'].map((tag, index) => (
-                            <span
-                                key={tag}
-                                className={`px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 rounded-full text-sm font-medium border border-gray-600 hover:border-orange-400 hover:text-orange-400 transition-all duration-300 transform hover:scale-105 ${isVisible ? 'animate-pulse' : ''}`}
-                                style={{ 
-                                    animationDelay: `${index * 200}ms`,
-                                    animationDuration: '2s'
-                                }}
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
+      },
+      { threshold: 0.3 },
     );
+
+    const skillsElement = document.getElementById("skills");
+    if (skillsElement) {
+      observer.observe(skillsElement);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      skillCategories.forEach((_, index) => {
+        setTimeout(() => {
+          setVisibleCategories((prev) => [...prev, index]);
+        }, index * 200);
+      });
+    }
+  }, [isVisible]);
+
+  return (
+    <section
+      id="skills"
+      className="px-4 py-16 md:py-20 bg-[#181c23] overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h3
+            className={`text-3xl md:text-4xl font-bold mb-4 text-white transition-all duration-1000 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}
+          >
+            Technical Skills
+          </h3>
+          <p
+            className={`text-gray-400 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-200 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
+            My expertise across different technologies and frameworks,
+            constantly evolving with industry trends.
+          </p>
+        </div>
+
+        {/* Skills Categories */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <div
+              key={category.title}
+              className={`transition-all duration-1000 transform ${
+                visibleCategories.includes(categoryIndex)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
+              {/* Category Title */}
+              <h4 className="text-sm md:text-base font-bold text-orange-400 mb-4 uppercase tracking-wider text-center md:text-left">
+                {category.title}
+              </h4>
+
+              {/* Skills List */}
+              <div className="space-y-2 flex flex-col items-center md:items-start">
+                {category.skills.map((skill, skillIndex) => (
+                  <div
+                    key={skill.name}
+                    className={`group transition-all duration-700 transform ${
+                      visibleCategories.includes(categoryIndex)
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-4"
+                    }`}
+                    style={{
+                      transitionDelay: `${skillIndex * 100}ms`,
+                    }}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <skill.icon className="text-lg text-gray-400 group-hover:text-orange-400 transition-colors" />
+                      <span className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors cursor-pointer">
+                        {skill.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Floating Skills Tags */}
+        <div
+          className={`mt-16 transition-all duration-1000 delay-1000 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "Responsive Design",
+              "API Integration",
+              "Database Design",
+              "Version Control",
+              "Agile Development",
+            ].map((tag, index) => (
+              <span
+                key={tag}
+                className={`px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 rounded-full text-sm font-medium border border-gray-600 hover:border-orange-400 hover:text-orange-400 transition-all duration-300 transform hover:scale-105 ${isVisible ? "animate-pulse" : ""}`}
+                style={{
+                  animationDelay: `${index * 200}ms`,
+                  animationDuration: "2s",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
